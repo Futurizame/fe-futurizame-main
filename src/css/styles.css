@@ -1,0 +1,114 @@
+body {
+  color: var(--neon-green);
+  background: var(--background-color);
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+}
+
+.top-bar {
+  height: 28px;
+  border-bottom: 2px solid;
+  padding: 8px 0;
+  overflow: clip;
+}
+
+.top-bar__box {
+  height: 100%;
+  background: var(--neon-green);
+  width: 100px;
+  animation: slider 1s linear infinite;
+}
+
+.running-bar {
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 16px;
+}
+
+.main-container__hero {
+  text-align: center;
+  padding-top: 32px;
+}
+
+.main-container__hero h1 {
+  font-size: 40px;
+}
+
+.footer-ascii {
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px 8px 16px;
+}
+
+.bottom-bar {
+  border-top: calc(1px / 2) solid;
+  padding: 4px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-title {
+  padding-top: 32px;
+}
+
+.about-p {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.text-accent {
+  color: var(--neon-violet);
+}
+
+.github {
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+}
+
+.github__button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .top-bar__box {
+    width: 200px;
+    animation-duration: 2s;
+  }
+}
+
+@keyframes slider {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}

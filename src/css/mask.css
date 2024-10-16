@@ -1,0 +1,174 @@
+.screen-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.screen-mask * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+.constant-flicker {
+  background: rgba(var(--background-color-rgb), 0.3);
+  animation: constant-flicker 0.15s infinite linear;
+}
+
+.temporal-flicker {
+  background: var(--background-color);
+  animation: temporal-flicker 4s infinite linear;
+}
+
+.gradient-slider {
+  height: 10svh;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 5%,
+    rgba(var(--background-color-rgb), 0.5) 40%,
+    rgba(var(--background-color-rgb), 1) 50%,
+    rgba(var(--background-color-rgb), 0.5) 60%,
+    rgba(255, 255, 255, 0) 95%
+  );
+  transform: translateY(-100%);
+  animation: gradient-slider 8s infinite linear;
+}
+
+@keyframes gradient-slider {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  20% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(100svh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100svh);
+    opacity: 1;
+  }
+}
+
+@keyframes temporal-flicker {
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  67% {
+    background: var(--background-color);
+    opacity: 0.4;
+  }
+  68% {
+    opacity: 0;
+  }
+  69% {
+    background: var(--background-color);
+    opacity: 0.4;
+  }
+  70% {
+    opacity: 0;
+  }
+  71% {
+    background: var(--background-color);
+    opacity: 0.4;
+  }
+  72% {
+    opacity: 0;
+  }
+  82% {
+    opacity: 0;
+  }
+  83% {
+    background: var(--background-color);
+    opacity: 0.4;
+  }
+  84% {
+    opacity: 0;
+  }
+  85% {
+    background: var(--background-color);
+    opacity: 0.4;
+  }
+  86% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes constant-flicker {
+  0% {
+    opacity: 0.72071;
+  }
+  5% {
+    opacity: 0.26725;
+  }
+  10% {
+    opacity: 0.1328;
+  }
+  15% {
+    opacity: 0.40483;
+  }
+  20% {
+    opacity: 0.87365;
+  }
+  25% {
+    opacity: 0.78326;
+  }
+  30% {
+    opacity: 0.85186;
+  }
+  35% {
+    opacity: 0.43945;
+  }
+  40% {
+    opacity: 0.11494;
+  }
+  45% {
+    opacity: 0.50345;
+  }
+  50% {
+    opacity: 0.43804;
+  }
+  55% {
+    opacity: 0.44429;
+  }
+  60% {
+    opacity: 0.94031;
+  }
+  65% {
+    opacity: 0.97411;
+  }
+  70% {
+    opacity: 0.43277;
+  }
+  75% {
+    opacity: 0.71216;
+  }
+  80% {
+    opacity: 0.89265;
+  }
+  85% {
+    opacity: 0.89044;
+  }
+  90% {
+    opacity: 0.94415;
+  }
+  95% {
+    opacity: 0.7916;
+  }
+  100% {
+    opacity: 0.99959;
+  }
+}

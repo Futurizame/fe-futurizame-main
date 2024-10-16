@@ -1,0 +1,26 @@
+:root {
+  --background-color-rgb: 13, 13, 13;
+  --neon-green-rgb: 57, 255, 20;
+  --neon-pink-rgb: 255, 20, 147;
+  --neon-violet-rgb: 194, 157, 227;
+  --secondary-text-color-rgb: 204, 204, 204;
+
+  --background-color: rgb(var(--background-color-rgb));
+  --neon-green: rgb(var(--neon-green-rgb));
+  --neon-pink: rgb(var(--neon-pink-rgb));
+  --neon-violet: rgb(var(--neon-violet-rgb));
+  --secondary-text-color: rgb(var(--secondary-text-color-rgb));
+}
+
+.button {
+  color: var(--neon-pink);
+  border: 1px dashed;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.button:hover {
+  background: var(--neon-pink);
+  border: 1px solid var(--neon-pink);
+  color: var(--secondary-text-color);
+}
