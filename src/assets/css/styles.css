@@ -41,6 +41,10 @@ footer {
   padding-right: 16px;
 }
 
+.flicker {
+  animation: flicker 1s infinite linear;
+}
+
 .main-container {
   width: 100%;
   max-width: 1440px;
@@ -110,5 +114,17 @@ footer {
   }
   100% {
     transform: translateX(100vw);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

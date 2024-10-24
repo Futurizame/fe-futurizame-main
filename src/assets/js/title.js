@@ -16,16 +16,22 @@ const i09 = document.getElementById("i09");
 const i10 = document.getElementById("i10");
 
 const arr = [i01, i02, i03, i04, i05, i06, i07, i08, i09, i10];
+const originalLetters = arr.reduce((res, ele) => {
+  res[ele.id] = ele.textContent;
+  return res;
+}, {});
 
-const initRandomLetterAnimation = (ele, originalLetter, endTimestamp) => {
+const initRandomLetterAnimation = (ele, endTimestamp) => {
   const intervalId = setInterval(() => {
-    ele.textContent = randomLetter();
-
     if (Date.now() >= endTimestamp) {
       clearInterval(intervalId);
-      ele.textContent = originalLetter;
+      ele.textContent = originalLetters[ele.id];
+
+      return;
     }
-  }, 80);
+
+    ele.textContent = randomLetter();
+  }, 100);
 };
 
 const startTitleAnimation = (durationMs) => {
@@ -33,18 +39,17 @@ const startTitleAnimation = (durationMs) => {
 
   const length = arr.length;
   arr.forEach((ele, index) => {
-    const deltaMs = (length - (index + 1)) * 500;
-    const originalLetter = ele.textContent;
+    const deltaMs = (length - (index + 1)) * 400;
 
     const endTimestamp = startTimestamp + durationMs - deltaMs;
 
-    initRandomLetterAnimation(ele, originalLetter, endTimestamp);
+    initRandomLetterAnimation(ele, endTimestamp);
   });
 };
 
 setTimeout(() => {
-  const durationMs = 8 * 1000;
+  const durationMs = 7 * 1000;
 
   startTitleAnimation(durationMs);
-  setInterval(startTitleAnimation, 10 * 1000, durationMs);
+  setInterval(startTitleAnimation, 9 * 1000, durationMs);
 }, 2000);
