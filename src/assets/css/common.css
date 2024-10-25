@@ -12,6 +12,11 @@
   --secondary-text-color: rgb(var(--secondary-text-color-rgb));
 }
 
+body {
+  color: var(--neon-green);
+  background: var(--background-color);
+}
+
 .button {
   color: var(--neon-pink);
   border: 1px dashed;
@@ -23,4 +28,8 @@
   background: var(--neon-pink);
   border: 1px solid var(--neon-pink);
   color: var(--secondary-text-color);
+}
+
+.text-accent {
+  color: var(--neon-violet);
 }
