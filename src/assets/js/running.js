@@ -27,5 +27,5 @@ const initTypingAnimation = () => {
 
 setTimeout(() => {
   initTypingAnimation();
-  setInterval(initTypingAnimation, 7000);
+  setInterval(initTypingAnimation, 6000);
 }, 1000);
