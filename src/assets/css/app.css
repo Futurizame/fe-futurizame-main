@@ -100,7 +100,7 @@ footer {
 }
 
 .the-eye-container path {
-  fill: var(--neon-green);
+  fill: var(--neon-violet);
 }
 
 @media (min-width: 768px) {
