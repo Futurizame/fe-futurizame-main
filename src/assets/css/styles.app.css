@@ -95,13 +95,13 @@ html {
 theme styles
  */
 :root {
-  --black: 13 13 13;
+  --smoky-black: 13 13 13;
   --gray: 204 204 204;
   --neon-green: 57 255 20;
   --neon-pink: 255 20 147;
   --neon-violet: 194 157 227;
 
-  --color-background: var(--black);
+  --color-background: var(--smoky-black);
   --color-primary: var(--neon-pink);
   --color-secondary: var(--neon-violet);
   --color-on-background: var(--neon-green);
