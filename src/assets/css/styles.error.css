@@ -1,3 +1,139 @@
+/*
+reset styles
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  -webkit-appearance: none;
+  border-radius: 0;
+  text-align: inherit;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  color: inherit;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*
+font styles
+ */
+@font-face {
+  font-family: "JetBrains Mono";
+  src:
+    local("JetBrains Mono"),
+    url("../fonts/JetBrainsMono[wght].woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src:
+    local("JetBrains Mono"),
+    url("../fonts/JetBrainsMono-Italic[wght].woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+html {
+  font-family: "JetBrains Mono", Consolas, monospace;
+}
+
+/*
+theme styles
+ */
+:root {
+  --black: 13 13 13;
+  --gray: 204 204 204;
+  --neon-green: 57 255 20;
+  --neon-pink: 255 20 147;
+  --neon-violet: 194 157 227;
+
+  --color-background: var(--black);
+  --color-primary: var(--neon-pink);
+  --color-secondary: var(--neon-violet);
+  --color-on-background: var(--neon-green);
+  --color-on-primary: var(--gray);
+  --color-on-secondary: var(--gray);
+}
+
+body {
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-on-background));
+}
+
+.button {
+  color: rgb(var(--color-primary));
+  border: 1px dashed;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.button:hover {
+  background: rgb(var(--color-primary));
+  border: 1px solid rgb(var(--color-primary));
+  color: rgb(var(--color-on-primary));
+}
+
+.text-accent {
+  color: rgb(var(--color-secondary));
+}
+
+/*
+mask styles
+ */
 .screen-mask {
   position: fixed;
   top: 0;
@@ -171,4 +307,40 @@
   100% {
     opacity: 0.99959;
   }
+}
+
+/*
+error styles
+ */
+main {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  padding: 16px;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.paragraph {
+  text-align: center;
 }
