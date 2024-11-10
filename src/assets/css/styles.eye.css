@@ -96,17 +96,13 @@ theme styles
  */
 :root {
   --smoky-black: #0d0d0d;
-  --gray: #cccccc;
-  --neon-green: #39ff14;
-  --neon-pink: #ff1493;
-  --neon-violet: #c29de3;
 
   --color-background: var(--smoky-black);
-  --color-primary: var(--neon-pink);
-  --color-secondary: var(--neon-violet);
-  --color-on-background: var(--neon-green);
-  --color-on-primary: var(--gray);
-  --color-on-secondary: var(--gray);
+  --color-primary: #ff1493;
+  --color-secondary: #c29de3;
+  --color-on-background: #39ff14;
+  --color-on-primary: #cccccc;
+  --color-on-secondary: #cccccc;
 }
 
 body {
@@ -151,12 +147,12 @@ mask styles
 }
 
 .constant-flicker {
-  background: rgb(from var(--color-background) r g b / 0.2);
+  background: rgb(from var(--smoky-black) r g b / 0.2);
   animation: constant-flicker 0.15s infinite linear;
 }
 
 .temporal-flicker {
-  background: var(--color-background);
+  background: var(--smoky-black);
   animation: temporal-flicker 4s infinite linear;
 }
 
@@ -165,9 +161,9 @@ mask styles
   background: linear-gradient(
     0deg,
     transparent 5%,
-    rgb(from var(--color-background) r g b / 0.5) 40,
-    var(--color-background) 50,
-    rgb(from var(--color-background) r g b / 0.5) 60,
+    rgb(from var(--smoky-black) r g b / 0.5) 40,
+    var(--smoky-black) 50,
+    rgb(from var(--smoky-black) r g b / 0.5) 60,
     transparent 95%
   );
   transform: translateY(-100%);
@@ -201,21 +197,21 @@ mask styles
     opacity: 0;
   }
   67% {
-    background: var(--color-background);
+    background: var(--smoky-black);
     opacity: 0.4;
   }
   68% {
     opacity: 0;
   }
   69% {
-    background: var(--color-background);
+    background: var(--smoky-black);
     opacity: 0.4;
   }
   70% {
     opacity: 0;
   }
   71% {
-    background: var(--color-background);
+    background: var(--smoky-black);
     opacity: 0.4;
   }
   72% {
@@ -225,14 +221,14 @@ mask styles
     opacity: 0;
   }
   83% {
-    background: var(--color-background);
+    background: var(--smoky-black);
     opacity: 0.4;
   }
   84% {
     opacity: 0;
   }
   85% {
-    background: var(--color-background);
+    background: var(--smoky-black);
     opacity: 0.4;
   }
   86% {
