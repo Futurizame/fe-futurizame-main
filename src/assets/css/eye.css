@@ -30,7 +30,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  background: var(--background-color);
+  background: rgb(var(--color-background));
 }
 
 .eye__border {
@@ -38,7 +38,7 @@
   width: 100%;
   height: 100%;
   background: transparent;
-  border: 4px solid var(--neon-violet);
+  border: 4px solid rgb(var(--color-secondary));
   border-radius: 50%;
 }
 
@@ -54,8 +54,8 @@
 
   background: radial-gradient(
     circle,
-    rgba(var(--neon-green-rgb), 1) 0%,
-    rgba(var(--neon-violet-rgb), 1) 50%,
+    rgb(var(--color-on-background)) 0%,
+    rgb(var(--color-secondary)) 50%,
     transparent 90%
   );
 }

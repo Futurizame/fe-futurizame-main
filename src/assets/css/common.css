@@ -1,35 +1,36 @@
 :root {
-  --background-color-rgb: 13, 13, 13;
-  --neon-green-rgb: 57, 255, 20;
-  --neon-pink-rgb: 255, 20, 147;
-  --neon-violet-rgb: 194, 157, 227;
-  --secondary-text-color-rgb: 204, 204, 204;
+  --black: 13 13 13;
+  --gray: 204, 204, 204;
+  --neon-green: 57, 255, 20;
+  --neon-pink: 255, 20, 147;
+  --neon-violet: 194, 157, 227;
 
-  --background-color: rgb(var(--background-color-rgb));
-  --neon-green: rgb(var(--neon-green-rgb));
-  --neon-pink: rgb(var(--neon-pink-rgb));
-  --neon-violet: rgb(var(--neon-violet-rgb));
-  --secondary-text-color: rgb(var(--secondary-text-color-rgb));
+  --color-background: var(--black);
+  --color-primary: var(--neon-pink);
+  --color-secondary: var(--neon-violet);
+  --color-on-background: var(--neon-green);
+  --color-on-primary: var(--gray);
+  --color-on-secondary: var(--gray);
 }
 
 body {
-  color: var(--neon-green);
-  background: var(--background-color);
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-on-background));
 }
 
 .button {
-  color: var(--neon-pink);
+  color: rgb(var(--color-primary));
   border: 1px dashed;
   border-radius: 8px;
   padding: 16px;
 }
 
 .button:hover {
-  background: var(--neon-pink);
-  border: 1px solid var(--neon-pink);
-  color: var(--secondary-text-color);
+  background: rgb(var(--color-primary));
+  border: 1px solid rgb(var(--color-primary));
+  color: rgb(var(--color-on-primary));
 }
 
 .text-accent {
-  color: var(--neon-violet);
+  color: rgb(var(--color-secondary));
 }

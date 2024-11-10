@@ -25,7 +25,7 @@ footer {
 
 .top-bar__box {
   height: 100%;
-  background: var(--neon-green);
+  background: rgb(var(--color-on-background));
   width: 100px;
   animation: slider 1s linear infinite;
 }
@@ -100,7 +100,7 @@ footer {
 }
 
 .the-eye-container path {
-  fill: var(--neon-violet);
+  fill: rgb(var(--color-secondary));
 }
 
 @media (min-width: 768px) {

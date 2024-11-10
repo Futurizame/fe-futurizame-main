@@ -15,12 +15,12 @@
 }
 
 .constant-flicker {
-  background: rgba(var(--background-color-rgb), 0.2);
+  background: rgb(var(--color-background) / 0.2);
   animation: constant-flicker 0.15s infinite linear;
 }
 
 .temporal-flicker {
-  background: var(--background-color);
+  background: rgb(var(--color-background));
   animation: temporal-flicker 4s infinite linear;
 }
 
@@ -28,11 +28,11 @@
   height: 10svh;
   background: linear-gradient(
     0deg,
-    rgba(255, 255, 255, 0) 5%,
-    rgba(var(--background-color-rgb), 0.5) 40%,
-    rgba(var(--background-color-rgb), 1) 50%,
-    rgba(var(--background-color-rgb), 0.5) 60%,
-    rgba(255, 255, 255, 0) 95%
+    transparent 5%,
+    rgb(var(--color-background) / 0.5) 40%,
+    rgb(var(--color-background)) 50%,
+    rgb(var(--color-background) / 0.5) 60%,
+    transparent 95%
   );
   transform: translateY(-100%);
   animation: gradient-slider 8s infinite linear;
@@ -65,21 +65,21 @@
     opacity: 0;
   }
   67% {
-    background: var(--background-color);
+    background: rgb(var(--color-background));
     opacity: 0.4;
   }
   68% {
     opacity: 0;
   }
   69% {
-    background: var(--background-color);
+    background: rgb(var(--color-background));
     opacity: 0.4;
   }
   70% {
     opacity: 0;
   }
   71% {
-    background: var(--background-color);
+    background: rgb(var(--color-background));
     opacity: 0.4;
   }
   72% {
@@ -89,14 +89,14 @@
     opacity: 0;
   }
   83% {
-    background: var(--background-color);
+    background: rgb(var(--color-background));
     opacity: 0.4;
   }
   84% {
     opacity: 0;
   }
   85% {
-    background: var(--background-color);
+    background: rgb(var(--color-background));
     opacity: 0.4;
   }
   86% {
