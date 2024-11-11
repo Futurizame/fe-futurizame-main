@@ -42,7 +42,437 @@
       }
     </script>
 
-    <link rel="stylesheet" href="assets/css/styles.app.css" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      * {
+        margin: 0;
+      }
+
+      body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        -webkit-appearance: none;
+        border-radius: 0;
+        text-align: inherit;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        cursor: pointer;
+        border: none;
+        color: inherit;
+      }
+
+      #root,
+      #__next {
+        isolation: isolate;
+      }
+
+      @font-face {
+        font-family: "JetBrains Mono";
+        src:
+          local("JetBrains Mono"),
+          url("assets/fonts/JetBrainsMono[wght].woff2") format("woff2");
+        font-weight: 100 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "JetBrains Mono";
+        src:
+          local("JetBrains Mono"),
+          url("assets/fonts/JetBrainsMono-Italic[wght].woff2") format("woff2");
+        font-weight: 100 800;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      html {
+        font-family: "JetBrains Mono", Consolas, monospace;
+      }
+
+      :root {
+        --color-background: #0d0d0d;
+        --color-primary: #ff1493;
+        --color-secondary: #c29de3;
+        --color-on-background: #39ff14;
+        --color-on-primary: #cccccc;
+        --color-on-secondary: #cccccc;
+      }
+
+      body {
+        background: var(--color-background);
+        color: var(--color-on-background);
+      }
+
+      .button {
+        color: var(--color-primary);
+        border: 1px dashed;
+        border-radius: 8px;
+        padding: 16px;
+      }
+
+      .button:hover {
+        background: var(--color-primary);
+        border: 1px solid var(--color-primary);
+        color: var(--color-on-primary);
+      }
+
+      .text-accent {
+        color: var(--color-secondary);
+      }
+
+      .screen-mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100lvh;
+        pointer-events: none;
+      }
+
+      .screen-mask * {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+      }
+
+      .constant-flicker {
+        background: rgb(from var(--color-background) r g b / 0.2);
+        animation: constant-flicker 0.15s infinite linear;
+      }
+
+      .temporal-flicker {
+        background: var(--color-background);
+        animation: temporal-flicker 4s infinite linear;
+      }
+
+      .gradient-slider {
+        height: 10svh;
+        background: linear-gradient(
+          to bottom,
+          transparent 5%,
+          rgb(from var(--color-background) r g b / 0.5) 40%,
+          var(--color-background) 50%,
+          rgb(from var(--color-background) r g b / 0.5) 60%,
+          transparent 95%
+        );
+        transform: translateY(-100%);
+        animation: gradient-slider 8s infinite linear;
+      }
+
+      @keyframes gradient-slider {
+        0% {
+          transform: translateY(-100%);
+        }
+        20% {
+          transform: translateY(-100%);
+        }
+        80% {
+          transform: translateY(100lvh);
+        }
+        100% {
+          transform: translateY(100lvh);
+        }
+      }
+
+      @keyframes temporal-flicker {
+        0% {
+          opacity: 0;
+        }
+        66% {
+          opacity: 0;
+        }
+        67% {
+          opacity: 0.4;
+        }
+        68% {
+          opacity: 0;
+        }
+        69% {
+          opacity: 0.4;
+        }
+        70% {
+          opacity: 0;
+        }
+        71% {
+          opacity: 0.4;
+        }
+        72% {
+          opacity: 0;
+        }
+        82% {
+          opacity: 0;
+        }
+        83% {
+          opacity: 0.4;
+        }
+        84% {
+          opacity: 0;
+        }
+        85% {
+          opacity: 0.4;
+        }
+        86% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes constant-flicker {
+        0% {
+          opacity: 0.72071;
+        }
+        5% {
+          opacity: 0.26725;
+        }
+        10% {
+          opacity: 0.1328;
+        }
+        15% {
+          opacity: 0.40483;
+        }
+        20% {
+          opacity: 0.87365;
+        }
+        25% {
+          opacity: 0.78326;
+        }
+        30% {
+          opacity: 0.85186;
+        }
+        35% {
+          opacity: 0.43945;
+        }
+        40% {
+          opacity: 0.11494;
+        }
+        45% {
+          opacity: 0.50345;
+        }
+        50% {
+          opacity: 0.43804;
+        }
+        55% {
+          opacity: 0.44429;
+        }
+        60% {
+          opacity: 0.94031;
+        }
+        65% {
+          opacity: 0.97411;
+        }
+        70% {
+          opacity: 0.43277;
+        }
+        75% {
+          opacity: 0.71216;
+        }
+        80% {
+          opacity: 0.89265;
+        }
+        85% {
+          opacity: 0.89044;
+        }
+        90% {
+          opacity: 0.94415;
+        }
+        95% {
+          opacity: 0.7916;
+        }
+        100% {
+          opacity: 0.99959;
+        }
+      }
+
+      main {
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        height: 100svh;
+      }
+
+      .top-bar {
+        height: 28px;
+        border-bottom: 2px solid;
+        padding: 8px 0;
+        overflow: clip;
+      }
+
+      .top-bar__box {
+        height: 100%;
+        background: var(--color-on-background);
+        width: 100px;
+        animation: slider 1s linear infinite;
+      }
+
+      .running-bar {
+        padding-top: 12px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .flicker {
+        animation: flicker 1s infinite linear;
+      }
+
+      .main-container {
+        width: 100%;
+        max-width: 1080px;
+        padding: 0 16px;
+      }
+
+      .main-container__hero {
+        text-align: center;
+        padding-top: 32px;
+      }
+
+      .main-container__hero h1 {
+        font-size: 40px;
+      }
+
+      .footer-ascii {
+        display: flex;
+        justify-content: center;
+        padding: 32px 16px 8px 16px;
+      }
+
+      .bottom-bar {
+        border-top: calc(1px / 2) solid;
+        padding: 4px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .about-title {
+        padding-top: 32px;
+      }
+
+      .about-p {
+        padding-top: 16px;
+      }
+
+      .paragraphs {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 14px;
+      }
+
+      .github {
+        display: flex;
+        justify-content: center;
+        padding-top: 32px;
+      }
+
+      .github__button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .the-eye-container {
+        padding: 32px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .the-eye-container path {
+        fill: var(--color-secondary);
+      }
+
+      @media (min-width: 768px) {
+        .top-bar__box {
+          width: 200px;
+          animation-duration: 2s;
+        }
+      }
+
+      @keyframes slider {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100vw);
+        }
+      }
+
+      @keyframes flicker {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .theme-container {
+        padding-top: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        text-align: center;
+      }
+    </style>
   </head>
 
   <body>
@@ -191,6 +621,7 @@
 
         <div class="bottom-bar">
           <p>© Handcrafted by William Estrada with ♡.</p>
+          <p>v1.0.0</p>
         </div>
       </footer>
     </div>
@@ -201,6 +632,152 @@
       <div class="gradient-slider"></div>
     </div>
 
-    <script src="assets/js/index.app.js"></script>
+    <script>
+      const WORD = "Running";
+      const CURSOR = "_";
+
+      const wordEle = document.getElementById("r-word");
+      const cursorEle = document.getElementById("r-cursor");
+
+      const initTypingAnimation = () => {
+        cursorEle.textContent = "";
+        cursorEle.className = "";
+
+        let tempWord = "";
+        wordEle.textContent = CURSOR;
+
+        const intervalId = setInterval(() => {
+          if (tempWord === WORD) {
+            clearInterval(intervalId);
+            wordEle.textContent = WORD;
+            cursorEle.textContent = CURSOR;
+            cursorEle.className = "flicker";
+            return;
+          }
+
+          tempWord += WORD[tempWord.length];
+          wordEle.textContent = tempWord + CURSOR;
+        }, 250);
+      };
+
+      setTimeout(() => {
+        initTypingAnimation();
+        setInterval(initTypingAnimation, 6000);
+      }, 1000);
+
+      const titleEle = document.getElementById("main-title");
+      const originalText = "Futuriza Me";
+
+      const LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+      const randomLetter = () => {
+        return LETTERS[Math.floor(Math.random() * LETTERS.length)];
+      };
+
+      const startAnimation = (timeConfig, endTimestamp) => {
+        const intervalId = setInterval(() => {
+          const now = Date.now();
+
+          titleEle.textContent = timeConfig
+            .map((endAt, index) => {
+              if (originalText[index] === " " || now >= endAt) {
+                return originalText[index];
+              }
+
+              return randomLetter();
+            })
+            .join("");
+
+          if (now >= endTimestamp) {
+            clearInterval(intervalId);
+          }
+        }, 100);
+      };
+
+      const buildTimeConfig = (length, endTimestamp) => {
+        return Array.from(new Array(length), (_, index) => {
+          const deltaMs = (length - (index + 1)) * 400;
+
+          return endTimestamp - deltaMs;
+        });
+      };
+
+      const startTitleAnimation = (durationMs) => {
+        const startTimestamp = Date.now();
+        const endTimestamp = startTimestamp + durationMs;
+
+        const length = originalText.length;
+
+        const timeConfig = buildTimeConfig(length, endTimestamp);
+
+        startAnimation(timeConfig, endTimestamp);
+      };
+
+      setTimeout(() => {
+        const durationMs = 6 * 1000;
+
+        startTitleAnimation(durationMs);
+        setInterval(startTitleAnimation, 9 * 1000, durationMs);
+      }, 3000);
+
+      const themeButton = document.getElementById("theme-button");
+      const root = document.querySelector(":root");
+
+      const themes = {
+        neonNight: {
+          background: "#0d0d0d",
+          primary: "#ff1493",
+          secondary: "#c29de3",
+          onBackground: "#39ff14",
+          onPrimary: "#cccccc",
+          onSecondary: "#cccccc",
+        },
+        redVelvet: {
+          background: "#880000",
+          primary: "#499f21",
+          secondary: "#c9a470",
+          onBackground: "#f9e4d2",
+          onPrimary: "#bd2338",
+          onSecondary: "#bd2338",
+        },
+        sepia: {
+          background: "#d6a543",
+          primary: "#d5cec9",
+          secondary: "#6a8a3b",
+          onBackground: "#8a4a26",
+          onPrimary: "#468faa",
+          onSecondary: "#468faa",
+        },
+        bubbleGum: {
+          background: "#ff6ec7",
+          primary: "#a0e7ff",
+          secondary: "#fff44f",
+          onBackground: "#ffffff",
+          onPrimary: "#633b20",
+          onSecondary: "#633b20",
+        },
+      };
+
+      let index = 0;
+      const arr = [themes.neonNight, themes.redVelvet, themes.sepia, themes.bubbleGum];
+      const titles = ["Neon Night", "Red Velvet", "Mexico Sepia", "Bubble Gum"];
+
+      const changeColorScheme = () => {
+        index = index === arr.length - 1 ? 0 : index + 1;
+
+        const theme = arr[index];
+
+        themeButton.textContent = titles[index];
+
+        root.style.setProperty("--color-background", theme.background);
+        root.style.setProperty("--color-primary", theme.primary);
+        root.style.setProperty("--color-secondary", theme.secondary);
+        root.style.setProperty("--color-on-background", theme.onBackground);
+        root.style.setProperty("--color-on-primary", theme.onPrimary);
+        root.style.setProperty("--color-on-secondary", theme.onSecondary);
+      };
+
+      themeButton.addEventListener("click", changeColorScheme);
+    </script>
   </body>
 </html>
