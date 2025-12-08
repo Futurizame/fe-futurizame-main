@@ -1,5 +1,3 @@
 import { defineConfig } from "astro/config";
 
-export default defineConfig({
-  srcDir: "./astro",
-});
+export default defineConfig({});
