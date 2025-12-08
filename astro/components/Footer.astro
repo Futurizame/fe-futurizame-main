@@ -1,0 +1,46 @@
+---
+interface Props {
+  version: string;
+  showBanner: boolean;
+}
+
+const { version, showBanner } = Astro.props;
+---
+
+<footer>
+  {
+    showBanner && (
+      <div class="footer-ascii">
+          <pre>
+,_     .
+|_ . . |- . . ,-. . ,_, ,-.   ,-,-. ,-.
+|  | | |  | | |   |  /  ,-|   | | | |-'
+|  `-' `' `-' '   ' '"' `-^   ' ' ' `-'
+'                           ~~</pre
+          >
+      </div>
+    )
+  }
+
+  <div class="bottom-bar">
+    <p>© Handcrafted by William Estrada with ♡.</p>
+    <p>v{version}</p>
+  </div>
+</footer>
+
+<style>
+  .footer-ascii {
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px 8px 16px;
+  }
+
+  .bottom-bar {
+    border-top: calc(1px / 2) solid;
+    padding: 4px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+</style>

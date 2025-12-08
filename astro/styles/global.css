@@ -1,0 +1,100 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  -webkit-appearance: none;
+  border-radius: 0;
+  text-align: inherit;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  color: inherit;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src:
+    local("JetBrains Mono"),
+    url("/assets/fonts/JetBrainsMono[wght].woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src:
+    local("JetBrains Mono"),
+    url("/assets/fonts/JetBrainsMono-Italic[wght].woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+html {
+  font-family: "JetBrains Mono", Consolas, monospace;
+}
+
+:root {
+  --color-background: #0d0d0d;
+  --color-primary: #ff1493;
+  --color-secondary: #c29de3;
+  --color-on-background: #39ff14;
+  --color-on-primary: #cccccc;
+  --color-on-secondary: #cccccc;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-on-background);
+}

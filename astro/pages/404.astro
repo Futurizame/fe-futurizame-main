@@ -1,0 +1,57 @@
+---
+import AppLayout from "../layouts/AppLayout.astro";
+---
+
+<AppLayout>
+  <div class="content">
+    <h1 class="title">404</h1>
+
+    <div>
+      <p class="paragraph">I just came back from <span class="text-accent">tomorrow</span>.</p>
+      <p class="paragraph">You <span class="text-accent">should not</span> be here.</p>
+      <p class="paragraph">Something is <span class="text-accent">missing</span>.</p>
+      <p class="paragraph">The <span class="text-accent">message</span> is out there.</p>
+    </div>
+
+    <a href="/">
+      <div class="button">
+        <p>Futuriza Me</p>
+      </div>
+    </a>
+  </div>
+</AppLayout>
+
+<style>
+  .button {
+    color: var(--color-primary);
+    border: 1px dashed;
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .button:hover {
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-on-primary);
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    height: 100%;
+  }
+  .title {
+    font-size: 64px;
+    font-weight: 700;
+  }
+
+  .paragraph {
+    text-align: center;
+  }
+
+  .text-accent {
+    color: var(--color-secondary);
+  }
+</style>

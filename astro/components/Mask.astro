@@ -1,0 +1,173 @@
+<div class="screen-mask">
+  <div class="constant-flicker"></div>
+  <div class="temporal-flicker"></div>
+  <div class="gradient-slider"></div>
+</div>
+
+<style>
+  .screen-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100lvh;
+    pointer-events: none;
+  }
+
+  .screen-mask * {
+    position: absolute;
+    width: 100%;
+  }
+
+  .constant-flicker {
+    height: 100%;
+    background: rgb(from var(--color-background) r g b / 0.2);
+    animation: constant-flicker 0.15s infinite linear;
+  }
+
+  .temporal-flicker {
+    height: 100%;
+    background: var(--color-background);
+    animation: temporal-flicker 4s infinite linear;
+  }
+
+  .gradient-slider {
+    height: 10svh;
+    background: linear-gradient(
+      to bottom,
+      transparent 5%,
+      rgb(from var(--color-background) r g b / 0.5) 40%,
+      var(--color-background) 50%,
+      rgb(from var(--color-background) r g b / 0.5) 60%,
+      transparent 95%
+    );
+    transform: translateY(-100%);
+    animation: gradient-slider 8s infinite linear;
+  }
+
+  @keyframes gradient-slider {
+    0% {
+      transform: translateY(-100%);
+    }
+    20% {
+      transform: translateY(-100%);
+    }
+    80% {
+      transform: translateY(100lvh);
+    }
+    100% {
+      transform: translateY(100lvh);
+    }
+  }
+
+  @keyframes temporal-flicker {
+    0% {
+      opacity: 0;
+    }
+    66% {
+      opacity: 0;
+    }
+    67% {
+      opacity: 0.4;
+    }
+    68% {
+      opacity: 0;
+    }
+    69% {
+      opacity: 0.4;
+    }
+    70% {
+      opacity: 0;
+    }
+    71% {
+      opacity: 0.4;
+    }
+    72% {
+      opacity: 0;
+    }
+    82% {
+      opacity: 0;
+    }
+    83% {
+      opacity: 0.4;
+    }
+    84% {
+      opacity: 0;
+    }
+    85% {
+      opacity: 0.4;
+    }
+    86% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes constant-flicker {
+    0% {
+      opacity: 0.72071;
+    }
+    5% {
+      opacity: 0.26725;
+    }
+    10% {
+      opacity: 0.1328;
+    }
+    15% {
+      opacity: 0.40483;
+    }
+    20% {
+      opacity: 0.87365;
+    }
+    25% {
+      opacity: 0.78326;
+    }
+    30% {
+      opacity: 0.85186;
+    }
+    35% {
+      opacity: 0.43945;
+    }
+    40% {
+      opacity: 0.11494;
+    }
+    45% {
+      opacity: 0.50345;
+    }
+    50% {
+      opacity: 0.43804;
+    }
+    55% {
+      opacity: 0.44429;
+    }
+    60% {
+      opacity: 0.94031;
+    }
+    65% {
+      opacity: 0.97411;
+    }
+    70% {
+      opacity: 0.43277;
+    }
+    75% {
+      opacity: 0.71216;
+    }
+    80% {
+      opacity: 0.89265;
+    }
+    85% {
+      opacity: 0.89044;
+    }
+    90% {
+      opacity: 0.94415;
+    }
+    95% {
+      opacity: 0.7916;
+    }
+    100% {
+      opacity: 0.99959;
+    }
+  }
+</style>

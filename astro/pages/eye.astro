@@ -1,0 +1,308 @@
+---
+import AppLayout from "../layouts/AppLayout.astro";
+---
+
+<AppLayout>
+  <main class="hero" id="text-container">
+    <h1 id="title">THE EYE</h1>
+    <a href="/" id="button">
+      <div class="button">
+        <p>Futuriza Me</p>
+      </div>
+    </a>
+  </main>
+
+  <div class="container">
+    <div class="eye" id="eye001">
+      <div class="iris" id="iris001"></div>
+      <div class="eye__border"></div>
+    </div>
+  </div>
+</AppLayout>
+
+<style>
+  .button {
+    color: var(--color-primary);
+    border: 1px dashed;
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .button:hover {
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100dvh;
+  }
+
+  .hero {
+    padding: 60px 0 0 0;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .bottom-bar {
+    border-top: calc(1px / 2) solid;
+    padding: 4px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: clip;
+    pointer-events: none;
+  }
+
+  .eye {
+    pointer-events: auto;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: clip;
+
+    cursor: grab;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: var(--color-background);
+  }
+
+  .eye__border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 4px solid var(--color-secondary);
+    border-radius: 50%;
+  }
+
+  .iris {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(circle, var(--color-on-background) 0%, var(--color-secondary) 50%, transparent 90%);
+  }
+</style>
+
+<script>
+  const textContainer = document.getElementById("text-container");
+
+  const eye = document.getElementById("eye001");
+  const iris = document.getElementById("iris001");
+
+  const eyeRect = eye.getBoundingClientRect();
+  const eyeRadiusX = eyeRect.width / 2;
+  const eyeRadiusY = eyeRect.height / 2;
+
+  const eyeOffsets = [0, 0];
+
+  const adjustBorders = (point, radiusX, radiusY) => {
+    const left = point[0] - radiusX;
+    const top = point[1] - radiusY;
+    const right = point[0] + radiusX;
+    const bottom = point[1] + radiusY;
+
+    const newPoint = [...point];
+
+    if (left <= 0) {
+      newPoint[0] = radiusX;
+    }
+    if (top <= 0) {
+      newPoint[1] = radiusY;
+    }
+    if (right >= window.innerWidth) {
+      newPoint[0] = window.innerWidth - radiusX;
+    }
+    if (bottom >= window.innerHeight) {
+      newPoint[1] = window.innerHeight - radiusY;
+    }
+
+    return newPoint;
+  };
+
+  const movePointToTargetOrigin = (point, targetOrigin) => {
+    const deltaLeft = point[0] - targetOrigin[0];
+    const deltaTop = point[1] - targetOrigin[1];
+
+    return [deltaLeft, deltaTop];
+  };
+
+  const getPositionPoint = (targetPoint, sourcePoint, targetDistance) => {
+    const deltaX = targetPoint[0] - sourcePoint[0];
+    const deltaY = targetPoint[1] - sourcePoint[1];
+
+    const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
+
+    if (distance <= targetDistance) {
+      return targetPoint;
+    }
+
+    const unitVectorX = deltaX / distance;
+    const unitVectorY = deltaY / distance;
+
+    const vectorX = unitVectorX * targetDistance;
+    const vectorY = unitVectorY * targetDistance;
+
+    const normalizedX = sourcePoint[0] + vectorX;
+    const normalizedY = sourcePoint[1] + vectorY;
+
+    return [normalizedX, normalizedY];
+  };
+
+  const getOriginAndCenter = (element) => {
+    const { left, top, width, height } = element.getBoundingClientRect();
+
+    const radiusX = width / 2;
+    const radiusY = height / 2;
+
+    return [
+      [left, top],
+      [left + radiusX, top + radiusY],
+    ];
+  };
+
+  const setElementPositionByCenter = (element, centerPoint) => {
+    element.style.left = `${centerPoint[0]}px`;
+    element.style.top = `${centerPoint[1]}px`;
+  };
+
+  const startMouseMoveEventListener = () => {
+    window.addEventListener("mousemove", ({ clientX, clientY }) => {
+      const [eyeOriginPoint] = getOriginAndCenter(eye);
+
+      const targetPoint = movePointToTargetOrigin([clientX, clientY], eyeOriginPoint);
+
+      const newIrisCenterPoint = getPositionPoint(targetPoint, [eyeRadiusX, eyeRadiusY], eyeRadiusX);
+
+      setElementPositionByCenter(iris, newIrisCenterPoint);
+    });
+  };
+
+  const startMouseDownEventListener = () => {
+    const mouseMoveListener = ({ clientX, clientY }) => {
+      const newCenterPoint = [clientX - eyeOffsets[0], clientY - eyeOffsets[1]];
+
+      const adjustedCenterPoint = adjustBorders(newCenterPoint, eyeRadiusX, eyeRadiusY);
+
+      setElementPositionByCenter(eye, adjustedCenterPoint);
+    };
+
+    eye.addEventListener("mousedown", (ev) => {
+      ev.preventDefault();
+
+      eyeOffsets[0] = ev.clientX - eye.offsetLeft;
+      eyeOffsets[1] = ev.clientY - eye.offsetTop;
+
+      eye.style.cursor = "grabbing";
+      textContainer.style.pointerEvents = "none";
+
+      window.addEventListener("mousemove", mouseMoveListener);
+    });
+
+    window.addEventListener("mouseup", () => {
+      eye.style.cursor = "grab";
+      textContainer.style.pointerEvents = "auto";
+
+      window.removeEventListener("mousemove", mouseMoveListener);
+    });
+  };
+
+  const startTouchStartEventListener = () => {
+    const touchMoveListener = ({ touches }) => {
+      const touch = touches[0];
+
+      const rect = eye.getBoundingClientRect();
+
+      const isInBounds =
+        touch.clientX >= rect.left &&
+        touch.clientX <= rect.right &&
+        touch.clientY >= rect.top &&
+        touch.clientY <= rect.bottom;
+
+      if (!isInBounds) {
+        window.removeEventListener("touchmove", touchMoveListener);
+      }
+
+      const newCenterPoint = [touch.pageX - eyeOffsets[0], touch.pageY - eyeOffsets[1]];
+
+      const adjustedCenterPoint = adjustBorders(newCenterPoint, eyeRadiusX, eyeRadiusY);
+
+      setElementPositionByCenter(eye, adjustedCenterPoint);
+    };
+
+    eye.addEventListener("touchstart", (ev) => {
+      ev.preventDefault();
+
+      const touch = ev.touches[0];
+
+      const rect = eye.getBoundingClientRect();
+
+      const isInBounds =
+        touch.clientX >= rect.left &&
+        touch.clientX <= rect.right &&
+        touch.clientY >= rect.top &&
+        touch.clientY <= rect.bottom;
+
+      if (!isInBounds) {
+        return;
+      }
+
+      eyeOffsets[0] = touch.pageX - eye.offsetLeft;
+      eyeOffsets[1] = touch.pageY - eye.offsetTop;
+
+      textContainer.style.pointerEvents = "none";
+
+      window.addEventListener("touchmove", touchMoveListener);
+    });
+
+    window.addEventListener("touchend", () => {
+      textContainer.style.pointerEvents = "auto";
+
+      window.removeEventListener("touchmove", touchMoveListener);
+    });
+    window.addEventListener("touchcancel", () => {
+      textContainer.style.pointerEvents = "auto";
+
+      window.removeEventListener("touchmove", touchMoveListener);
+    });
+  };
+
+  const startResizeEventListener = () => {
+    window.addEventListener("resize", () => {
+      const [_, eyeCenterPoint] = getOriginAndCenter(eye);
+
+      const adjustedCenterPoint = adjustBorders(eyeCenterPoint, eyeRadiusX, eyeRadiusY);
+
+      setElementPositionByCenter(eye, adjustedCenterPoint);
+    });
+  };
+
+  startMouseMoveEventListener();
+  startMouseDownEventListener();
+  startTouchStartEventListener();
+  startResizeEventListener();
+</script>

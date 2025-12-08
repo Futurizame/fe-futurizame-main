@@ -1,0 +1,94 @@
+<header>
+  <div class="top-bar">
+    <div class="top-bar__box"></div>
+  </div>
+  <p class="running-bar">&gt;&gt; <span id="r-word">Running</span><span id="r-cursor" class="flicker">_</span></p>
+</header>
+
+<style>
+  .top-bar {
+    height: 28px;
+    border-bottom: 2px solid;
+    padding: 8px 0;
+    overflow: clip;
+  }
+
+  .top-bar__box {
+    height: 100%;
+    background: var(--color-on-background);
+    width: 100px;
+    animation: slider 1s linear infinite;
+  }
+
+  .running-bar {
+    padding-top: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .flicker {
+    animation: flicker 1s infinite linear;
+  }
+
+  @media (min-width: 768px) {
+    .top-bar__box {
+      width: 200px;
+      animation-duration: 2s;
+    }
+  }
+
+  @keyframes slider {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+
+  @keyframes flicker {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  const WORD = "Running";
+  const CURSOR = "_";
+
+  const wordEle = document.getElementById("r-word");
+  const cursorEle = document.getElementById("r-cursor");
+
+  const initTypingAnimation = () => {
+    cursorEle.textContent = "";
+    cursorEle.className = "";
+
+    let tempWord = "";
+    wordEle.textContent = CURSOR;
+
+    const intervalId = setInterval(() => {
+      if (tempWord === WORD) {
+        clearInterval(intervalId);
+        wordEle.textContent = WORD;
+        cursorEle.textContent = CURSOR;
+        cursorEle.className = "flicker";
+        return;
+      }
+
+      tempWord += WORD[tempWord.length];
+      wordEle.textContent = tempWord + CURSOR;
+    }, 250);
+  };
+
+  setTimeout(() => {
+    initTypingAnimation();
+    setInterval(initTypingAnimation, 6000);
+  }, 1000);
+</script>
