@@ -12,10 +12,11 @@ interface Props {
   locale: string;
   currentPage: string;
   showHeader?: boolean;
+  disableHeader?: boolean;
   showBottomBanner?: boolean;
 }
 
-const { locale, currentPage, showHeader = false, showBottomBanner = false } = Astro.props;
+const { locale, currentPage, showBottomBanner = false, disableHeader = false } = Astro.props;
 
 const t = getTranslator(locale);
 ---
@@ -63,7 +64,7 @@ const t = getTranslator(locale);
 
   <body>
     <div class="content">
-      {showHeader && <Header locale={locale} currentPage={currentPage} />}
+      {!disableHeader && <Header locale={locale} currentPage={currentPage} />}
       <main>
         <slot />
       </main>

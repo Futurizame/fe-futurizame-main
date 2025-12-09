@@ -1,6 +1,6 @@
 {
   "home": "/",
-  "eye": "the-eye",
-  "learn": "learn",
-  "learn.javascript": "learn/javascript"
+  "eye": "/the-eye",
+  "learn": "/learn",
+  "learn.javascript": "/learn/javascript"
 }

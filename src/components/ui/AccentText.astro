@@ -1,0 +1,14 @@
+---
+interface Props {
+  text: string;
+  accentWords: string[];
+}
+
+const { text, accentWords } = Astro.props;
+
+const html = accentWords.reduce((str, word) => {
+  return str.replace(word, `<span style="color: var(--color-secondary);">${word}</span>`);
+}, text);
+---
+
+<p set:html={html} />

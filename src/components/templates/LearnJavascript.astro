@@ -10,11 +10,11 @@ interface Props {
 
 const { locale } = Astro.props;
 
-const page = "learn.javascript"
+const page = "learn.javascript";
 const t = getTranslator(locale);
 ---
 
-<AppLayout locale={locale} currentPage={page} showHeader={true}>
+<AppLayout locale={locale} currentPage={page}>
   <h1>JavaScript</h1>
 
   <section>
