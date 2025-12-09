@@ -1,0 +1,89 @@
+---
+import AppLayout from "../../layouts/AppLayout.astro";
+import Link from "../ui/Link.astro";
+import { getTranslator } from "../../i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+
+const page = "learn.javascript"
+const t = getTranslator(locale);
+---
+
+<AppLayout locale={locale} currentPage={page} showHeader={true}>
+  <h1>JavaScript</h1>
+
+  <section>
+    <h2>¿Qué ofrece este taller?</h2>
+    <p>
+      Clases rápidas, constantes y dinámicas: sesiones de 2 horas de lunes a viernes. El objetivo es
+      crear una rutina de aprendizaje sólida y progresiva.
+    </p>
+    <p>
+      Grupos pequeños: pocos alumnos por clase para garantizar mentoría 1 a 1 durante todo el
+      proceso.
+    </p>
+    <p>
+      Contenido con nivel de programas universitarios, pero explicado de forma accesible, clara y
+      enfocada en lo realmente útil para empezar a trabajar.
+    </p>
+    <p>
+      Enfoque totalmente práctico: aprenderás desarrollando proyectos reales, desde los fundamentos
+      hasta la construcción de aplicaciones completas con Node.js.
+    </p>
+  </section>
+
+  <section>
+    <h2>Objetivo del taller</h2>
+    <p>
+      Brindarte las herramientas, hábitos y conocimientos necesarios para competir en el mercado
+      laboral del software, específicamente en el ecosistema de JavaScript y Node.js. Al finalizar,
+      tendrás los cimientos de ingeniería que necesitan los desarrolladores junior y podrás seguir
+      creciendo con bases sólidas.
+    </p>
+    <p>
+      Estoy aquí para acompañarte durante el proceso y ayudarte a construir tu camino profesional en
+      el desarrollo de software.
+    </p>
+  </section>
+
+  <section>
+    <h2>Horarios</h2>
+    <p>Clases de lunes a viernes, 2 horas por sesión. Turnos disponibles:</p>
+    <ul>
+      <li>5:00 pm a 6:50 pm</li>
+      <li>7:00 pm a 8:50 pm</li>
+      <li>9:00 pm a 10:50 pm</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Enlaces relevantes</h2>
+
+    <Link
+      href="https://www.linkedin.com/in/william-estrada-b55276183/"
+      target="_blank"
+      rel="noopener noreferrer">LinkedIn</Link
+    >
+
+    <Link
+      href="https://docs.google.com/document/d/1BpyJOfUIM_Q9sB2I5DWThCSmuOoouqSQZXEGVcPsZKE/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Currículum
+    </Link>
+
+    <Link href="https://github.com/Futurizame" target="_blank" rel="noopener noreferrer">
+      GitHub
+    </Link>
+  </section>
+
+  <div style="margin-top: 24px;">
+    <Link href={getRelativeLocaleUrl(locale, t("routes", "learn"))}>Volver</Link>
+  </div>
+</AppLayout>

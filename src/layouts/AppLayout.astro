@@ -6,36 +6,38 @@ import Footer from "../components/Footer.astro";
 
 import { version } from "../../package.json";
 import Mask from "../components/Mask.astro";
+import { getTranslator } from "../i18n";
 
 interface Props {
+  locale: string;
+  currentPage: string;
   showHeader?: boolean;
   showBottomBanner?: boolean;
 }
 
-const { showHeader = false, showBottomBanner = false } = Astro.props;
+const { locale, currentPage, showHeader = false, showBottomBanner = false } = Astro.props;
+
+const t = getTranslator(locale);
 ---
 
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Futuriza Me</title>
     <meta name="author" content="William Estrada" />
-    <meta
-      name="description"
-      content="Futuriza Me by William Estrada, a Senior Software Engineer driven by a love for sci-fi and innovation. With expertise in TypeScript, Go, and AWS cloud development, William creates resilient software solutions and high-performance applications."
-    />
+    <meta name="description" content={t("layout", "description")} />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Futuriza Me" />
-    <meta property="og:description" content="Futuriza Me by William Estrada, Senior Software Engineer" />
+    <meta property="og:description" content={t("layout", "ogDescription")} />
     <meta property="og:url" content="https://futuriza.me/" />
     <meta property="og:image" content="https://futuriza.me/assets/images/meta.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Futuriza Me" />
-    <meta name="twitter:description" content="Futuriza Me by William Estrada, Senior Software Engineer" />
+    <meta name="twitter:description" content={t("layout", "twitterDescription")} />
     <meta name="twitter:site" content="@peaceofsheep_" />
     <meta name="twitter:image" content="https://futuriza.me/assets/images/meta.png" />
 
@@ -61,11 +63,11 @@ const { showHeader = false, showBottomBanner = false } = Astro.props;
 
   <body>
     <div class="content">
-      {showHeader && <Header />}
+      {showHeader && <Header locale={locale} currentPage={currentPage} />}
       <main>
         <slot />
       </main>
-      <Footer version={version} showBanner={showBottomBanner} />
+      <Footer locale={locale} version={version} showBanner={showBottomBanner} />
     </div>
 
     <Mask />
@@ -81,8 +83,5 @@ const { showHeader = false, showBottomBanner = false } = Astro.props;
 
   main {
     flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
   }
 </style>

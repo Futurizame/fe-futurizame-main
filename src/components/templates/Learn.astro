@@ -1,0 +1,21 @@
+---
+import AppLayout from "../../layouts/AppLayout.astro";
+import Link from "../ui/Link.astro";
+import { getTranslator } from "../../i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+interface Props {
+  locale: string;
+}
+
+const page = "learn"
+const { locale } = Astro.props;
+
+const t = getTranslator(locale);
+---
+
+<AppLayout locale={locale} currentPage={page} showHeader={true}>
+  <h1>Learn</h1>
+
+  <Link href={getRelativeLocaleUrl(locale, t("routes", "learn.javascript"))}>Javascript</Link>
+</AppLayout>

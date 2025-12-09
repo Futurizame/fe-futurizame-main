@@ -1,0 +1,20 @@
+---
+import Home from "../../components/templates/Home.astro";
+import Eye from "../../components/templates/Eye.astro";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return [
+    { params: { locale: "en", slug: "/" }, props: { page: "home" } },
+    { params: { locale: "en", slug: "/the-eye" }, props: { page: "eye" } },
+
+    { params: { locale: "es", slug: "/" }, props: { page: "home" } },
+    { params: { locale: "es", slug: "/el-ojo" }, props: { page: "eye" } },
+  ];
+};
+
+const locale = Astro.currentLocale;
+---
+
+{Astro.props.page === "home" && <Home locale={locale} />}
+{Astro.props.page === "eye" && <Eye locale={locale} />}

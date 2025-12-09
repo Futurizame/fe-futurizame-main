@@ -1,0 +1,356 @@
+---
+import AppLayout from "../../layouts/AppLayout.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getTranslator } from "../../i18n";
+
+interface Props {
+  locale: string;
+}
+
+const page = "home";
+const { locale } = Astro.props;
+
+const t = getTranslator(locale)
+---
+
+<AppLayout locale={locale} currentPage={page} showHeader={true} showBottomBanner={true}>
+  <div class="core">
+    <div class="main-container">
+      <section class="main-container__hero">
+        <h1 id="main-title">Futuriza Me</h1>
+      </section>
+
+      <section>
+        <div>
+          <h2 class="about-title">Message from the future: William Estrada here.</h2>
+          <div class="about-p paragraphs">
+            <p>
+              Ever since I immersed myself in the world of <span class="text-accent">sci-fi</span>, I’ve been captivated
+              by the possibilities of the <span class="text-accent">future</span>, that passion naturally led me to a
+              career in the <span class="text-accent">tech industry</span>.
+            </p>
+            <p>
+              As a <span class="text-accent">Senior Software Engineer</span>, I’ve been crafting software solutions
+              <span class="text-accent">since 2019</span>, working on projects that span mobile development to backend
+              systems. I’ve mastered languages like <span class="text-accent">TypeScript and Go</span>, while always
+              striving to understand the ins and outs of each technology I use.
+            </p>
+            <p>
+              From <span class="text-accent">maintaining and optimizing</span> legacy software to
+              <span class="text-accent">building resilient, high-performance applications from scratch</span>, I’ve
+              developed strong expertise in AWS cloud development, earning several
+              <span class="text-accent">AWS certifications</span> along the way.
+            </p>
+            <p>
+              As for my <span class="text-accent">lifestyle</span>? I love playing guitar, bass, and drums,
+              <span class="text-accent">one-man band</span>, you could say. When I’m not coding or messing around with
+              music, you’ll find me experimenting with
+              <span class="text-accent">new recipes in the kitchen</span> or out
+              <span class="text-accent">skateboarding</span> to unwind. And of course, I’m always staying connected to the
+              world of sci-fi, where my inspiration is never far away.
+            </p>
+            <p>
+              So, I heard you want some futurizing? Get in touch: <span class="text-accent">will@futuriza.me</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="GitHub Repository" class="github">
+        <a href="https://github.com/Futurizame" target="_blank" rel="noopener noreferrer">
+          <div class="github__button button">
+            <p>Want to see some code?</p>
+            <svg width="36" height="36" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+                fill="#fff"></path>
+            </svg>
+          </div>
+        </a>
+      </section>
+
+      <section class="the-eye-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+          <g
+            style="
+                  stroke: none;
+                  stroke-width: 0;
+                  stroke-dasharray: none;
+                  stroke-linecap: butt;
+                  stroke-linejoin: miter;
+                  stroke-miterlimit: 10;
+                  fill: none;
+                  fill-rule: nonzero;
+                  opacity: 1;
+                "
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+          >
+            <path
+              d="M 45 73.264 c -14.869 0 -29.775 -8.864 -44.307 -26.346 c -0.924 -1.112 -0.924 -2.724 0 -3.836 C 15.225 25.601 30.131 16.737 45 16.737 c 14.868 0 29.775 8.864 44.307 26.345 c 0.925 1.112 0.925 2.724 0 3.836 C 74.775 64.399 59.868 73.264 45 73.264 z M 6.934 45 C 19.73 59.776 32.528 67.264 45 67.264 c 12.473 0 25.27 -7.487 38.066 -22.264 C 70.27 30.224 57.473 22.737 45 22.737 C 32.528 22.737 19.73 30.224 6.934 45 z"
+              style="
+                    stroke: none;
+                    stroke-width: 1;
+                    stroke-dasharray: none;
+                    stroke-linecap: butt;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 10;
+                    fill-rule: nonzero;
+                    opacity: 1;
+                  "
+              transform=" matrix(1 0 0 1 0 0) "
+              stroke-linecap="round"></path>
+            <path
+              d="M 45 62 c -9.374 0 -17 -7.626 -17 -17 s 7.626 -17 17 -17 s 17 7.626 17 17 S 54.374 62 45 62 z M 45 34 c -6.065 0 -11 4.935 -11 11 s 4.935 11 11 11 s 11 -4.935 11 -11 S 51.065 34 45 34 z"
+              style="
+                    stroke: none;
+                    stroke-width: 1;
+                    stroke-dasharray: none;
+                    stroke-linecap: butt;
+                    stroke-linejoin: miter;
+                    stroke-miterlimit: 10;
+                    fill-rule: nonzero;
+                    opacity: 1;
+                  "
+              transform=" matrix(1 0 0 1 0 0) "
+              stroke-linecap="round"></path>
+          </g>
+        </svg>
+
+        <a href={getRelativeLocaleUrl(locale, t("routes", "eye"))}>
+          <div class="button">
+            <p>FuturizaMe presents: {t("eye", "title")}</p>
+          </div>
+        </a>
+      </section>
+
+      <section class="theme-container">
+        <div class="paragraphs">
+          <p>All this appearance, becomes so <span class="text-accent">real</span>.</p>
+          <p>Everything feels so real, yet it's pure <span class="text-accent">appearance</span>.</p>
+        </div>
+        <button id="theme-button" class="button">Neon Night</button>
+      </section>
+    </div>
+  </div>
+</AppLayout>
+
+<style>
+  .core {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .main-container {
+    width: 100%;
+    max-width: 1080px;
+    padding: 0 16px;
+  }
+
+  .main-container__hero {
+    text-align: center;
+    padding-top: 32px;
+  }
+
+  .main-container__hero h1 {
+    font-size: 40px;
+  }
+
+  .footer-ascii {
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px 8px 16px;
+  }
+
+  .bottom-bar {
+    border-top: calc(1px / 2) solid;
+    padding: 4px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .about-title {
+    padding-top: 32px;
+  }
+
+  .about-p {
+    padding-top: 16px;
+  }
+
+  .paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .github {
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+  }
+
+  .github__button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .the-eye-container {
+    padding: 32px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .the-eye-container path {
+    fill: var(--color-secondary);
+  }
+
+  .theme-container {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .button {
+    color: var(--color-primary);
+    border: 1px dashed;
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .button:hover {
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .text-accent {
+    color: var(--color-secondary);
+  }
+</style>
+
+<script>
+  const titleEle = document.getElementById("main-title");
+  const originalText = "Futuriza Me";
+
+  const LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  const randomLetter = () => {
+    return LETTERS[Math.floor(Math.random() * LETTERS.length)];
+  };
+
+  const startAnimation = (timeConfig: number[], endTimestamp: number) => {
+    const intervalId = setInterval(() => {
+      const now = Date.now();
+
+      titleEle.textContent = timeConfig
+        .map((endAt, index) => {
+          if (originalText[index] === " " || now >= endAt) {
+            return originalText[index];
+          }
+
+          return randomLetter();
+        })
+        .join("");
+
+      if (now >= endTimestamp) {
+        clearInterval(intervalId);
+      }
+    }, 100);
+  };
+
+  const buildTimeConfig = (length: number, endTimestamp: number): number[] => {
+    return Array.from(new Array(length), (_, index) => {
+      const deltaMs = (length - (index + 1)) * 400;
+
+      return endTimestamp - deltaMs;
+    });
+  };
+
+  const startTitleAnimation = (durationMs: number) => {
+    const startTimestamp = Date.now();
+    const endTimestamp = startTimestamp + durationMs;
+
+    const length = originalText.length;
+
+    const timeConfig = buildTimeConfig(length, endTimestamp);
+
+    startAnimation(timeConfig, endTimestamp);
+  };
+
+  setTimeout(() => {
+    const durationMs = 6 * 1000;
+
+    startTitleAnimation(durationMs);
+    setInterval(startTitleAnimation, 9 * 1000, durationMs);
+  }, 3000);
+
+  const themeButton = document.getElementById("theme-button");
+  const root = document.querySelector<HTMLElement>(":root");
+
+  const themes = {
+    neonNight: {
+      background: "#0d0d0d",
+      primary: "#ff1493",
+      secondary: "#c29de3",
+      onBackground: "#39ff14",
+      onPrimary: "#cccccc",
+      onSecondary: "#cccccc",
+    },
+    redVelvet: {
+      background: "#880000",
+      primary: "#499f21",
+      secondary: "#c9a470",
+      onBackground: "#f9e4d2",
+      onPrimary: "#bd2338",
+      onSecondary: "#bd2338",
+    },
+    sepia: {
+      background: "#d6a543",
+      primary: "#d5cec9",
+      secondary: "#6a8a3b",
+      onBackground: "#8a4a26",
+      onPrimary: "#468faa",
+      onSecondary: "#468faa",
+    },
+    bubbleGum: {
+      background: "#ff6ec7",
+      primary: "#a0e7ff",
+      secondary: "#fff44f",
+      onBackground: "#ffffff",
+      onPrimary: "#633b20",
+      onSecondary: "#633b20",
+    },
+  };
+
+  let index = 0;
+  const arr = [themes.neonNight, themes.redVelvet, themes.sepia, themes.bubbleGum];
+  const titles = ["Neon Night", "Red Velvet", "Mexico Sepia", "Bubble Gum"];
+
+  const changeColorScheme = () => {
+    index = index === arr.length - 1 ? 0 : index + 1;
+
+    const theme = arr[index];
+
+    themeButton.textContent = titles[index];
+
+    root.style.setProperty("--color-background", theme.background);
+    root.style.setProperty("--color-primary", theme.primary);
+    root.style.setProperty("--color-secondary", theme.secondary);
+    root.style.setProperty("--color-on-background", theme.onBackground);
+    root.style.setProperty("--color-on-primary", theme.onPrimary);
+    root.style.setProperty("--color-on-secondary", theme.onSecondary);
+  };
+
+  themeButton.addEventListener("click", changeColorScheme);
+</script>

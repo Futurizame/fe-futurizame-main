@@ -1,0 +1,77 @@
+---
+import Button from "./Button.astro";
+import Link from "./Link.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getTranslator } from "../../i18n";
+
+interface Props {
+  locale: string;
+  currentPage: string;
+}
+
+const { locale, currentPage } = Astro.props;
+
+const flagSpain = "🇪🇸";
+const flagEnglish = "🇬🇧";
+
+const enT = getTranslator("en");
+const esT = getTranslator("es");
+---
+
+<div class="language-switcher">
+  <Button id="language-button" type="button" aria-label="Select language" aria-expanded="false">
+    <span id="current-flag">{locale === "en" ? flagEnglish : flagSpain}</span></Button
+  >
+  <div id="language-dropdown" class="language-dropdown" hidden>
+    <Link href={getRelativeLocaleUrl("en", enT("routes", currentPage))}>{flagEnglish} English</Link>
+    <Link href={getRelativeLocaleUrl("es", esT("routes", currentPage))}>{flagSpain} Español</Link>
+  </div>
+</div>
+
+<script>
+  const button = document.getElementById("language-button");
+  const dropdown = document.getElementById("language-dropdown");
+
+  button?.addEventListener("click", () => {
+    const isHidden = dropdown?.hasAttribute("hidden");
+    if (isHidden) {
+      dropdown?.removeAttribute("hidden");
+      button?.setAttribute("aria-expanded", "true");
+    } else {
+      dropdown?.setAttribute("hidden", "");
+      button?.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!button?.contains(e.target as Node) && !dropdown?.contains(e.target as Node)) {
+      dropdown?.setAttribute("hidden", "");
+      button?.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>
+
+<style>
+  .language-switcher {
+    position: relative;
+    display: inline-block;
+  }
+
+  #language-button {
+    font-size: 1.2rem;
+  }
+
+  .language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 4px;
+    padding: 4px;
+    background: var(--color-background);
+    border: 2px solid var(--color-primary);
+    border-radius: 12px;
+    min-width: 150px;
+    z-index: 1000;
+  }
+</style>

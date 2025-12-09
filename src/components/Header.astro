@@ -1,8 +1,28 @@
+---
+import LanguageSwitcher from "./ui/LanguageSwitcher.astro";
+
+interface Props {
+  locale: string;
+  currentPage: string;
+}
+
+const { locale, currentPage } = Astro.props;
+---
+
 <header>
   <div class="top-bar">
     <div class="top-bar__box"></div>
   </div>
-  <p class="running-bar">&gt;&gt; <span id="r-word">Running</span><span id="r-cursor" class="flicker">_</span></p>
+
+  <div class="header-content">
+    <p class="running-bar">
+      &gt;&gt; <span id="r-word">Running</span><span id="r-cursor" class="flicker">_</span>
+    </p>
+
+    <div>
+      <LanguageSwitcher locale={locale} currentPage={currentPage} />
+    </div>
+  </div>
 </header>
 
 <style>
@@ -18,6 +38,11 @@
     background: var(--color-on-background);
     width: 100px;
     animation: slider 1s linear infinite;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
   }
 
   .running-bar {

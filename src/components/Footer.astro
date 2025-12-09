@@ -1,29 +1,33 @@
 ---
+import { getTranslator } from "../i18n";
 interface Props {
+  locale: string;
   version: string;
   showBanner: boolean;
 }
 
-const { version, showBanner } = Astro.props;
+const { locale, version, showBanner } = Astro.props;
+
+const banner = `,_     .
+|_ . . |- . . ,-. . ,_, ,-.   ,-,-. ,-.
+|  | | |  | | |   |  /  ,-|   | | | |-'
+|  \`-' \`' \`-' '   ' '"' \`-^   ' ' ' \`-'
+'                           ~~`;
+
+const t = getTranslator(locale);
 ---
 
 <footer>
   {
     showBanner && (
       <div class="footer-ascii">
-          <pre>
-,_     .
-|_ . . |- . . ,-. . ,_, ,-.   ,-,-. ,-.
-|  | | |  | | |   |  /  ,-|   | | | |-'
-|  `-' `' `-' '   ' '"' `-^   ' ' ' `-'
-'                           ~~</pre
-          >
+        <pre>{banner}</pre>
       </div>
     )
   }
 
   <div class="bottom-bar">
-    <p>© Handcrafted by William Estrada with ♡.</p>
+    <p>© {t("footer", "label")} ♡.</p>
     <p>v{version}</p>
   </div>
 </footer>
