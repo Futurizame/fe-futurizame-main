@@ -23,8 +23,10 @@ const esT = getTranslator("es");
     <span id="current-flag">{locale === "en" ? flagEnglish : flagSpain}</span></Button
   >
   <div id="language-dropdown" class="language-dropdown" hidden>
-    <Link href={getRelativeLocaleUrl("en", enT("routes", currentPage))}>{flagEnglish} English</Link>
-    <Link href={getRelativeLocaleUrl("es", esT("routes", currentPage))}>{flagSpain} Español</Link>
+    <div class="dropdown-container">
+      <Link href={getRelativeLocaleUrl("en", enT("routes", currentPage))}>{flagEnglish} English</Link>
+      <Link href={getRelativeLocaleUrl("es", esT("routes", currentPage))}>{flagSpain} Español</Link>
+    </div>
   </div>
 </div>
 
@@ -58,10 +60,6 @@ const esT = getTranslator("es");
     display: inline-block;
   }
 
-  #language-button {
-    font-size: 1.2rem;
-  }
-
   .language-dropdown {
     position: absolute;
     top: 100%;
@@ -73,5 +71,11 @@ const esT = getTranslator("es");
     border-radius: 12px;
     min-width: 150px;
     z-index: 1000;
+  }
+
+  .dropdown-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
   }
 </style>
