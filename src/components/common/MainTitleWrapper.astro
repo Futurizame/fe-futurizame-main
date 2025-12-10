@@ -1,0 +1,21 @@
+---
+import MainTitle from "../ui/MainTitle.astro";
+
+interface Props {
+  id: string;
+  text: string;
+}
+
+const { id, text } = Astro.props;
+---
+
+<div>
+  <MainTitle id={id} text={text} />
+</div>
+
+<style>
+  div {
+    text-align: center;
+    padding-top: 32px;
+  }
+</style>

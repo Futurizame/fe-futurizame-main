@@ -1,0 +1,20 @@
+---
+interface Props {
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+}
+
+const { top = "0px", bottom = "0px", left = "0px", right = "0px" } = Astro.props;
+---
+
+<div class="box">
+  <slot />
+</div>
+
+<style define:vars={{ top, bottom, left, right }}>
+  .box {
+    padding: var(--top) var(--right) var(--bottom) var(--left);
+  }
+</style>

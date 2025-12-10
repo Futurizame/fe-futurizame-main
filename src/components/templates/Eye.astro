@@ -2,6 +2,8 @@
 import AppLayout from "../../layouts/AppLayout.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getTranslator } from "../../i18n";
+import MainTitle from "../ui/MainTitle.astro";
+import Link from "../ui/Link.astro";
 
 interface Props {
   locale: string;
@@ -13,15 +15,13 @@ const { locale } = Astro.props;
 const t = getTranslator(locale);
 ---
 
-<AppLayout locale={locale} currentPage={page} showHeader={true}>
+<AppLayout locale={locale} currentPage={page} showBottomBanner={true}>
   <main class="hero" id="text-container">
-    <h1 id="title">{t("eye", "title")}</h1>
+    <MainTitle id="eye" text={t("eye", "title")} />
 
-    <a href={getRelativeLocaleUrl(locale, "/")} id="button">
-      <div class="button">
-        <p>Futuriza Me</p>
-      </div>
-    </a>
+    <Link href={getRelativeLocaleUrl(locale, "/")}>
+      Futuriza Me
+    </Link>
   </main>
 </AppLayout>
 
@@ -33,19 +33,6 @@ const t = getTranslator(locale);
 </div>
 
 <style>
-  .button {
-    color: var(--color-primary);
-    border: 1px dashed;
-    border-radius: 8px;
-    padding: 16px;
-  }
-
-  .button:hover {
-    background: var(--color-primary);
-    border: 1px solid var(--color-primary);
-    color: var(--color-on-primary);
-  }
-
   .hero {
     padding: 60px 0 0 0;
     flex: 1 0 auto;

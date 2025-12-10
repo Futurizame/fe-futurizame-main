@@ -4,6 +4,8 @@ import enFooter from "./res/en/footer.json";
 import esFooter from "./res/es/footer.json";
 import enRoutes from "./res/en/routes.json";
 import esRoutes from "./res/es/routes.json";
+import enHome from "./res/en/home.json";
+import esHome from "./res/es/home.json";
 import enEye from "./res/en/eye.json";
 import esEye from "./res/es/eye.json";
 
@@ -12,12 +14,14 @@ const resources = {
     layout: enLayout,
     footer: enFooter,
     routes: enRoutes,
+    home: enHome,
     eye: enEye,
   },
   es: {
     layout: esLayout,
     footer: esFooter,
     routes: esRoutes,
+    home: esHome,
     eye: esEye,
   },
 };

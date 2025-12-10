@@ -14,7 +14,7 @@ const { locale } = Astro.props;
 const t = getTranslator(locale);
 ---
 
-<AppLayout locale={locale} currentPage={page} showHeader={true}>
+<AppLayout locale={locale} currentPage={page} showBottomBanner={true}>
   <h1>Learn</h1>
 
   <Link href={getRelativeLocaleUrl(locale, t("routes", "learn.javascript"))}>Javascript</Link>

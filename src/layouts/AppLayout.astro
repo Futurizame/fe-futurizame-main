@@ -14,9 +14,10 @@ interface Props {
   showHeader?: boolean;
   disableHeader?: boolean;
   showBottomBanner?: boolean;
+  disableBottomBanner?: boolean;
 }
 
-const { locale, currentPage, showBottomBanner = false, disableHeader = false } = Astro.props;
+const { locale, currentPage, disableBottomBanner = false, disableHeader = false } = Astro.props;
 
 const t = getTranslator(locale);
 ---
@@ -68,7 +69,7 @@ const t = getTranslator(locale);
       <main>
         <slot />
       </main>
-      <Footer locale={locale} version={version} showBanner={showBottomBanner} />
+      <Footer locale={locale} version={version} showBanner={!disableBottomBanner} />
     </div>
 
     <Mask />
