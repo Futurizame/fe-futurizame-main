@@ -1,0 +1,16 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class={className} {...rest}>
+  <slot />
+</div>
+
+<style>
+  div {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+</style>

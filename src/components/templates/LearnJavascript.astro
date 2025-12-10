@@ -4,10 +4,12 @@ import Link from "../ui/Link.astro";
 import { getTranslator } from "../../i18n";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import ContentWrapper from "../ui/ContentWrapper.astro";
-import MainTitle from "../ui/MainTitle.astro";
 import MainTitleWrapper from "../common/MainTitleWrapper.astro";
 import SectionWrapper from "../common/SectionWrapper.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
+import ParagraphsWrapper from "../common/ParagraphsWrapper.astro";
+import AccentText from "../ui/AccentText.astro";
+import Box from "../common/Box.astro";
 
 interface Props {
   locale: string;
@@ -24,102 +26,211 @@ const t = getTranslator(locale);
     <MainTitleWrapper id="title" text="JavaScript" />
 
     <SectionWrapper>
-      <SectionTitle text="¿Qué ofrece este taller?" />
-
-      <p>
-        Clases rápidas, constantes y dinámicas: sesiones de 2 horas de lunes a viernes. El objetivo
-        es crear una rutina de aprendizaje sólida y progresiva.
-      </p>
-      <p>
-        Grupos pequeños: pocos alumnos por clase para garantizar mentoría 1 a 1 durante todo el
-        proceso.
-      </p>
-      <p>
-        Contenido con nivel de programas universitarios, pero explicado de forma accesible, clara y
-        enfocada en lo realmente útil para empezar a trabajar.
-      </p>
-      <p>
-        Enfoque totalmente práctico: aprenderás desarrollando proyectos reales, desde los
-        fundamentos hasta la construcción de aplicaciones completas con Node.js.
-      </p>
+      <SectionTitle text="Aprende a Programar Desde Cero" />
+      <ParagraphsWrapper>
+        <AccentText
+          text="✨ Domina JavaScript, Node.js, Frontend, Backend e IA — incluso si nunca has programado."
+          accentWords={["JavaScript", "Node.js", "Frontend", "Backend", "IA"]}
+        />
+      </ParagraphsWrapper>
     </SectionWrapper>
 
     <SectionWrapper>
-      <SectionTitle text="Objetivo del taller" />
-      <p>
-        Brindarte las herramientas, hábitos y conocimientos necesarios para competir en el mercado
-        laboral del software, específicamente en el ecosistema de JavaScript y Node.js. Al
-        finalizar, tendrás los cimientos de ingeniería que necesitan los desarrolladores junior y
-        podrás seguir creciendo con bases sólidas.
-      </p>
-      <p>
-        Estoy aquí para acompañarte durante el proceso y ayudarte a construir tu camino profesional
-        en el desarrollo de software.
-      </p>
+      <SectionTitle text="¿Qué es este taller?" />
+      <ParagraphsWrapper>
+        <AccentText
+          text="🧩 Un programa práctico e intensivo para personas sin experiencia previa, diseñado para aprender desarrollo de software con herramientas modernas, proyectos reales y el uso estratégico de IA desde el primer día."
+          accentWords={["personas sin experiencia previa"]}
+        />
+      </ParagraphsWrapper>
     </SectionWrapper>
 
     <SectionWrapper>
-      <SectionTitle text="Horarios" />
-      <p>Clases de lunes a viernes, 2 horas por sesión. Turnos disponibles:</p>
-      <ul>
-        <li>5:00 pm a 6:50 pm</li>
-        <li>7:00 pm a 8:50 pm</li>
-        <li>9:00 pm a 10:50 pm</li>
-      </ul>
+      <SectionTitle text="¿Por qué este taller es diferente?" />
+      <ParagraphsWrapper>
+        <AccentText text="🚀 Desde cero y para principiantes." accentWords={["Desde cero"]} />
+        <AccentText
+          text="🤖 Uso intensivo de IA durante el ciclo completo de desarrollo."
+          accentWords={["Uso intensivo de IA"]}
+        />
+        <AccentText
+          text="🎓 Metodología universitaria explicada simple."
+          accentWords={["Metodología universitaria"]}
+        />
+        <AccentText
+          text="🧱 100% práctico: construyes antes que memorizar."
+          accentWords={["100% práctico"]}
+        />
+        <AccentText
+          text="🧠 Enfoque en la habilidad de resolución de problemas (problem solving)."
+          accentWords={["habilidad de resolución de problemas"]}
+        />
+        <AccentText
+          text="📅 Clases de lunes a viernes — 2 horas diarias."
+          accentWords={["2 horas diarias"]}
+        />
+        <AccentText
+          text="👥 Grupos reducidos con mentoría 1 a 1."
+          accentWords={["Grupos reducidos"]}
+        />
+      </ParagraphsWrapper>
     </SectionWrapper>
 
     <SectionWrapper>
-      <SectionTitle text="Contacto" />
+      <SectionTitle text="Lo que vas a aprender (Full-Stack JavaScript)" />
+      <Box top="16px">
+        <AccentText accentWords={["Frontend"]} text="⚛️ Frontend" />
+        <ul>
+          <li>JavaScript desde cero</li>
+          <li>ES6+ moderno</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>Astro</li>
+        </ul>
+      </Box>
+      <Box top="16px">
+        <AccentText accentWords={["Backend"]} text="🌐 Backend" />
+        <ul>
+          <li>Node.js</li>
+          <li>HTTP Module</li>
+          <li>Express</li>
+          <li>Fastify</li>
+          <li>AWS Lambda Functions</li>
+        </ul>
+      </Box>
+      <Box top="16px">
+        <AccentText accentWords={["Habilidades clave"]} text="🔧 Habilidades clave" />
+        <ul>
+          <li>Lógica y algoritmos</li>
+          <li>Resolución de problemas</li>
+          <li>Buenas prácticas de ingeniería</li>
+          <li>Uso profesional de IA</li>
+          <li>Construcción de aplicaciones completas</li>
+        </ul>
+      </Box>
+    </SectionWrapper>
 
-      <p>email: will@futuriza.me</p>
-      <p>teléfono: +51 987 343 388</p>
+    <SectionWrapper>
+      <SectionTitle text="Metodología" />
+      <ParagraphsWrapper>
+        <p>🎯 Clases dinámicas, progresivas y prácticas.</p>
+        <p>👥 Mentoría personalizada en grupos pequeños.</p>
+        <div>
+          <p>🧪 Retos constantes con:</p>
+          <ul>
+            <li>LeetCode</li>
+            <li>Codewars</li>
+            <li>Casos reales del mundo laboral</li>
+          </ul>
+        </div>
+        <p>🧱 Proyectos que simulan el trabajo de un dev.</p>
+        <p>📚 Avance guiado, paso a paso y sin abrumarte.</p>
+      </ParagraphsWrapper>
+    </SectionWrapper>
+
+    <SectionWrapper>
+      <SectionTitle text="Al finalizar podrás:" />
+      <ParagraphsWrapper>
+        <p>🏗️ Construir apps completas por tu cuenta.</p>
+        <p>🧠 Pensar y resolver problemas como un ingeniero.</p>
+        <p>🤖 Usar IA como herramienta profesional.</p>
+        <p>🚀 Competir en el mercado con nivel junior.</p>
+        <p>📈 Aprender de forma autónoma sin depender de tutoriales</p>
+      </ParagraphsWrapper>
+    </SectionWrapper>
+
+    <SectionWrapper>
+      <SectionTitle text="Horarios disponibles" />
+      <ParagraphsWrapper>
+        <div>
+          <p>🇵🇪 Hora Perú (GMT-5)</p>
+          <ul>
+            <li>5:00 pm - 7:00 pm</li>
+            <li>7:00 pm - 9:00 pm</li>
+            <li>9:00 pm - 11:00 pm</li>
+          </ul>
+        </div>
+        <div>
+          <AccentText accentWords={["Modalidad"]} text="Modalidad: Online" />
+          <AccentText accentWords={["Frecuencia"]} text="Frecuencia: Lunes a viernes" />
+          <AccentText accentWords={["Duración"]} text="Duración: 2 horas por sesión" />
+        </div>
+      </ParagraphsWrapper>
+    </SectionWrapper>
+
+    <SectionWrapper>
+      <SectionTitle text="Sobre mí" />
+      <ParagraphsWrapper>
+        <AccentText
+          accentWords={["ingeniero de software", " 7años de experiencia"]}
+          text="👨‍💻 Soy William Estrada, ingeniero de software con más de 7 años de experiencia."
+        />
+        <AccentText
+          accentWords={["Consultor de software"]}
+          text="🇺🇸 Consultor de software para empresas de Estados Unidos, desarrollando soluciones reales con JavaScript, TypeScript y Node.js."
+        />
+        <AccentText
+          accentWords={["Experiencia construyendo"]}
+          text="🛠️ Experiencia construyendo sistemas backend, frontend, arquitecturas escalables y aplicaciones cloud."
+        />
+        <AccentText
+          accentWords={["enseñar", "guiar"]}
+          text="❤️ Tengo pasión por enseñar y guiar a nuevos desarrolladores hacia el mundo profesional."
+        />
+      </ParagraphsWrapper>
+    </SectionWrapper>
+
+    <SectionWrapper>
+      <SectionTitle text="Inscripciones y contacto" />
+      <ParagraphsWrapper>
+        <AccentText accentWords={["Email"]} text="📧 Email: will@futuriza.me" />
+        <AccentText accentWords={["WhatsApp"]} text="📱 WhatsApp: +51 987 343 388" />
+      </ParagraphsWrapper>
     </SectionWrapper>
 
     <SectionWrapper>
       <SectionTitle text="Enlaces" />
-
-      <div class="links">
+      <ParagraphsWrapper class="links">
         <Link
           href="https://docs.google.com/document/d/1ZoQgVKTBxhyvQ1SMHHx5mTuXgkqxJ7BESVjDoO-PRkA/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Sílabo
+          📄 Sílabo
         </Link>
-
-        <Link
-          href="https://www.linkedin.com/in/william-estrada-b55276183/"
-          target="_blank"
-          rel="noopener noreferrer">LinkedIn</Link
-        >
-
         <Link
           href="https://docs.google.com/document/d/1psAbIQn6AbSStch71-4KByP4i3ZqAB_hUXdwODtvsqk/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Currículum
+          📘 Currículum
         </Link>
-
+        <Link
+          href="https://www.linkedin.com/in/william-estrada-b55276183/"
+          target="_blank"
+          rel="noopener noreferrer">🔗 LinkedIn</Link
+        >
         <Link href="https://github.com/Futurizame" target="_blank" rel="noopener noreferrer">
-          GitHub
+          💻 GitHub
         </Link>
-      </div>
+      </ParagraphsWrapper>
     </SectionWrapper>
 
-    <SectionWrapper>
-      <Link href={getRelativeLocaleUrl(locale, t("routes", "learn"))}>Volver</Link>
+    <SectionWrapper class="return">
+        <Link href={getRelativeLocaleUrl(locale, t("routes", "learn"))}>Volver</Link>
     </SectionWrapper>
   </ContentWrapper>
 </AppLayout>
 
 <style>
   .links {
-    max-width: fit-content;
-    padding-top: 16px;
+    max-width: 200px;
+  }
+
+  .return {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    align-items: stretch;
+    align-items: center;
   }
 </style>
