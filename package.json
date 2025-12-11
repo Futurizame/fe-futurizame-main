@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "astro dev --host",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro preview --host",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
