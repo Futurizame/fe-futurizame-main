@@ -1,5 +1,8 @@
 ---
 import LanguageSwitcher from "./ui/LanguageSwitcher.astro";
+import Link from "./ui/Link.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getTranslator } from "../i18n";
 
 interface Props {
   locale: string;
@@ -7,6 +10,10 @@ interface Props {
 }
 
 const { locale, currentPage } = Astro.props;
+
+const t = getTranslator(locale);
+
+const runningWord = t("header", "running");
 ---
 
 <header>
@@ -15,11 +22,12 @@ const { locale, currentPage } = Astro.props;
   </div>
 
   <div class="header-content">
-    <p class="running-bar">
-      &gt;&gt; <span id="r-word">Running</span><span id="r-cursor" class="flicker">_</span>
+    <p>
+      &gt;&gt; <span id="r-word">{runningWord}</span><span id="r-cursor" class="flicker">_</span>
     </p>
 
     <div class="running-bar">
+      <Link href={getRelativeLocaleUrl(locale, t("routes", "home"))}>Futuriza Me</Link>
       <LanguageSwitcher locale={locale} currentPage={currentPage} />
     </div>
   </div>
@@ -43,12 +51,14 @@ const { locale, currentPage } = Astro.props;
   .header-content {
     display: flex;
     justify-content: space-between;
-  }
-
-  .running-bar {
     padding-top: 12px;
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  div.running-bar {
+    display: flex;
+    gap: 8px;
   }
 
   .flicker {
@@ -84,8 +94,8 @@ const { locale, currentPage } = Astro.props;
   }
 </style>
 
-<script>
-  const WORD = "Running";
+<script is:inline define:vars={{ runningWord }}>
+  const WORD = runningWord;
   const CURSOR = "_";
 
   const wordEle = document.getElementById("r-word");
