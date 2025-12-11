@@ -1,0 +1,16 @@
+---
+import AppLayout from "../../layouts/AppLayout.astro";
+import ContentWrapper from "../ui/ContentWrapper.astro";
+
+interface Props {
+  locale: string;
+}
+
+const page = "about";
+
+const { locale } = Astro.props;
+---
+
+<AppLayout locale={locale} currentPage={page}>
+  <ContentWrapper />
+</AppLayout>
