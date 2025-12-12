@@ -1,5 +1,5 @@
 ---
-import { getTranslator } from "../i18n";
+import { getTranslator } from "../../i18n";
 interface Props {
   locale: string;
   version: string;
@@ -10,8 +10,8 @@ const { locale, version, showBanner } = Astro.props;
 
 const banner = `,_     .
 |_ . . |- . . ,-. . ,_, ,-.   ,-,-. ,-.
-|  | | |  | | |   |  /  ,-|   | | | |-'
-|  \`-' \`' \`-' '   ' '"' \`-^   ' ' ' \`-'
+|  | | |  | | |   |  /  ,-|   | | | |-' 
+|  \`-' \`' \`-' '   ' "'" \`-^   ' ' ' \`-' 
 '                           ~~`;
 
 const t = getTranslator(locale);
