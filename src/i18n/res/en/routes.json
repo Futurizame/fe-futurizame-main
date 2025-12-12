@@ -2,5 +2,8 @@
   "home": "/",
   "eye": "/the-eye",
   "learn": "/learn",
-  "learn.javascript": "/learn/javascript"
+  "learn.javascript": "/learn/javascript",
+  "courses": "/courses",
+  "courses.javascript": "/courses/javascript",
+  "about": "/about"
 }

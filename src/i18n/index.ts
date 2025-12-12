@@ -10,6 +10,12 @@ import enHome from "./res/en/home.json";
 import esHome from "./res/es/home.json";
 import enEye from "./res/en/eye.json";
 import esEye from "./res/es/eye.json";
+import enAbout from "./res/en/about.json";
+import esAbout from "./res/es/about.json";
+import enLearn from "./res/en/learn.json";
+import esLearn from "./res/es/learn.json";
+import enCourses from "./res/en/courses.json";
+import esCourses from "./res/es/courses.json";
 
 const resources = {
   en: {
@@ -19,6 +25,9 @@ const resources = {
     routes: enRoutes,
     home: enHome,
     eye: enEye,
+    about: enAbout,
+    learn: enLearn,
+    courses: enCourses,
   },
   es: {
     layout: esLayout,
@@ -27,6 +36,9 @@ const resources = {
     routes: esRoutes,
     home: esHome,
     eye: esEye,
+    about: esAbout,
+    learn: esLearn,
+    courses: esCourses,
   },
 };
 

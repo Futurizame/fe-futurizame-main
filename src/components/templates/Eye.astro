@@ -9,13 +9,13 @@ interface Props {
   locale: string;
 }
 
-const page = "eye"
+const page = "eye";
 const { locale } = Astro.props;
 
 const t = getTranslator(locale);
 ---
 
-<AppLayout locale={locale} currentPage={page} showBottomBanner={true}>
+<AppLayout locale={locale} currentPage={page}>
   <main class="hero" id="text-container">
     <MainTitle id="eye" text={t("eye", "title")} />
   </main>

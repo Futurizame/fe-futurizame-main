@@ -2,5 +2,8 @@
   "home": "/",
   "eye": "el-ojo",
   "learn": "aprender",
-  "learn.javascript": "aprender/javascript"
+  "learn.javascript": "aprender/javascript",
+  "courses": "cursos",
+  "courses.javascript": "cursos/javascript",
+  "about": "sobre-mi"
 }

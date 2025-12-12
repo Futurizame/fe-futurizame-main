@@ -4,6 +4,8 @@ import Eye from "../../components/templates/Eye.astro";
 import type { GetStaticPaths } from "astro";
 import Learn from "../../components/templates/Learn.astro";
 import LearnJavascript from "../../components/templates/LearnJavascript.astro";
+import About from "../../components/templates/About.astro";
+import Courses from "../../components/templates/Courses.astro";
 
 export const getStaticPaths: GetStaticPaths = () => {
   return [
@@ -11,11 +13,17 @@ export const getStaticPaths: GetStaticPaths = () => {
     { params: { locale: "en", slug: "/the-eye" }, props: { page: "eye" } },
     { params: { locale: "en", slug: "/learn/" }, props: { page: "learn" } },
     { params: { locale: "en", slug: "/learn/javascript" }, props: { page: "javascript" } },
+    { params: { locale: "en", slug: "/courses/" }, props: { page: "courses" } },
+    { params: { locale: "en", slug: "/courses/javascript" }, props: { page: "javascript" } },
+    { params: { locale: "en", slug: "/about" }, props: { page: "about" } },
 
     { params: { locale: "es", slug: "/" }, props: { page: "home" } },
     { params: { locale: "es", slug: "/el-ojo" }, props: { page: "eye" } },
     { params: { locale: "es", slug: "/aprender/" }, props: { page: "learn" } },
     { params: { locale: "es", slug: "/aprender/javascript" }, props: { page: "javascript" } },
+    { params: { locale: "es", slug: "/cursos/" }, props: { page: "courses" } },
+    { params: { locale: "es", slug: "/cursos/javascript" }, props: { page: "javascript" } },
+    { params: { locale: "es", slug: "/sobre-mi" }, props: { page: "about" } },
   ];
 };
 
@@ -25,4 +33,6 @@ const locale = Astro.currentLocale;
 {Astro.props.page === "home" && <Home locale={locale} />}
 {Astro.props.page === "eye" && <Eye locale={locale} />}
 {Astro.props.page === "learn" && <Learn locale={locale} />}
+{Astro.props.page === "courses" && <Courses locale={locale} />}
 {Astro.props.page === "javascript" && <LearnJavascript locale={locale} />}
+{Astro.props.page === "about" && <About locale={locale} />}

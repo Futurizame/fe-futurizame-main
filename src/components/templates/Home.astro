@@ -78,7 +78,7 @@ const robotPixels = [
 const t = getTranslator(locale);
 ---
 
-<AppLayout locale={locale} currentPage={page} showHeader={true} showBottomBanner={true}>
+<AppLayout locale={locale} currentPage={page}>
   <ContentWrapper>
     <MainTitleWrapper id="futurizame" text="Futuriza Me" />
 
@@ -220,6 +220,14 @@ const t = getTranslator(locale);
         />
 
         <Button id="theme-button">Neon Night</Button>
+
+        <Link href={getRelativeLocaleUrl(locale, t("routes", "about"))}>
+          {t("home", "about.cta")}
+        </Link>
+
+        <Link href={getRelativeLocaleUrl(locale, t("routes", "courses"))}>
+          {t("home", "cta.courses")}
+        </Link>
       </ParagraphsWrapper>
     </SectionWrapper>
   </ContentWrapper>
